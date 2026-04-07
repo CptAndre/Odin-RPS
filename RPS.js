@@ -17,12 +17,7 @@ function humanChoice(choice){
     }
 }
 
-function playRound(){
-    for (let round=1; round<=5; round++) {
-        
-    let choice = prompt("Chose Rock Paper or Scissors, relember is case sensitive");
-    console.log(`Current round: ${round}`);
-
+function playRound(choice){
     let human = humanChoice(choice);
     let computer  = computerChoice();
 
@@ -46,7 +41,23 @@ function playRound(){
         
     console.log(`Current Score: ${humscore} vs ${compscore}`);
 
+}
+
+function playGame() {
+    for (let round = 1; round <= 5; round++) {
+        let choice = prompt(`Round ${round}: Choose Rock, Paper or Scissors`);
+        playRound(choice);
+    }
+
+    console.log("=== FINAL RESULT ===");
+
+    if (humscore > compscore) {
+        console.log("You won the game");
+    } else if (compscore > humscore) {
+        console.log("Computer won the game");
+    } else {
+        console.log("It's a tie");
     }
 }
 
-playRound();
+playGame();
