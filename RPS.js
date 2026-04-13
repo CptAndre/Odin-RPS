@@ -6,10 +6,10 @@ function computerChoice() {
     }
 
 function humanChoice(choice){
-    if(choice === "Rock"){
+    if(choice === "rock"){
         return 0;
     }
-    else if (choice === "Paper"){
+    else if (choice === "paper"){
         return 1;
     }
     else{
@@ -43,7 +43,11 @@ function playRound(choice){
 
 }
 
-function playGame() {
+function playGame(choice) {
+    playRound(choice);
+}
+
+/* function playGame() {
     for (let round = 1; round <= 5; round++) {
         let choice = prompt(`Round ${round}: Choose Rock, Paper or Scissors`);
         playRound(choice);
@@ -60,4 +64,18 @@ function playGame() {
     }
 }
 
-playGame();
+playGame(); */
+
+const buttonR = document.querySelector("#rock");
+const buttonP = document.querySelector("#paper");
+const buttonS = document.querySelector("#scissors");
+
+buttonR.addEventListener("click", () => { 
+    playGame("rock");
+});
+buttonP.addEventListener("click", () => { 
+    playGame("paper");
+});
+buttonS.addEventListener("click", () => { 
+    playGame("rock");
+});
