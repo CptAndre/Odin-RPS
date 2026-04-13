@@ -23,7 +23,7 @@ buttonS.addEventListener("click", () => {
 function computerChoice() {
     let Comp = Math.floor(Math.random() * 3)
     return Comp;
-    }
+}
 
 function humanChoice(choice){
     if(choice === "rock"){
@@ -37,10 +37,13 @@ function humanChoice(choice){
     }
 }
 
-function appendResult(message) {
+function appendResult(message, isBold = false) {
     const entry = document.createElement("div");
     entry.textContent = message;
     entry.style.padding = "4px 0";
+    if (isBold) {
+        entry.style.fontWeight = "700";
+    }
     results.appendChild(entry);
 }
 
@@ -75,7 +78,9 @@ function playRound(choice){
 function playGame(choice) {
     if (gameOver) {
         return;
-}
+    }
+
+    appendResult(`Current Round: ${roundsPlayed + 1}`, true);
 
     playRound(choice);
 
